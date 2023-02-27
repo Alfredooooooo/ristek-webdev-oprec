@@ -1,0 +1,43 @@
+.inputGroup {
+    @apply relative;
+}
+
+.inputText {
+    @apply rounded-xl w-full px-6 py-4 bg-gradient-to-r from-slate-300 to-slate-400 outline-none border-2 font-semibold text-[#222] focus:border-2 focus:shadow-lg shadow-sm  placeholder:text-[#777];
+}
+
+.textArea {
+    @apply rounded-xl h-60 w-full px-6 py-4 bg-gradient-to-r from-slate-300 to-slate-400 outline-none border-2 font-semibold text-[#222] focus:border-2 focus:shadow-lg shadow-sm  placeholder:text-[#777];
+}
+
+.inputText:focus + .icons {
+    @apply text-[#6366f1];
+}
+
+.formGroup {
+    @apply flex flex-col gap-3;
+}
+
+.registerGroupButton {
+    @apply flex gap-2 items-center justify-center;
+}
+
+.buttonLogin {
+    @apply rounded-xl py-3 text-lg font-semibold shadow-md transition-all duration-1000 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-500 text-gray-50 hover:shadow-xl hover:bg-bgWeb/10 flex-grow;
+}
+
+/* .buttonloginother {
+    @apply flex justify-center items-center gap-2 rounded-xl py-3 border text-lg font-semibold shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:bg-gray-700 text-gray-100;
+} */
+
+.icons {
+    @apply absolute top-1/2 right-0 -translate-y-1/2 px-4 text-[#CBD5E1];
+}
+
+.inputText:not([type='email']) ~ span:hover * {
+    @apply text-[#6366f1] cursor-pointer;
+}
+
+.errorFormGroup {
+    @apply flex flex-col gap-3 justify-center relative;
+}

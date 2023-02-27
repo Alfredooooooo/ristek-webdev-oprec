@@ -1,0 +1,8 @@
+.wrapper {
+    @apply w-full h-screen absolute top-0 left-0 flex justify-center items-center backdrop-blur z-50;
+}
+
+.spinner {
+    box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+    transform: rotate(3deg) translate(0px, -4px);
+}
