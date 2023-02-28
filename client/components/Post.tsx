@@ -2,6 +2,7 @@ import {
     selectDeleteModalValue,
     setOpenDelete,
 } from '@/store/slices/modalSlices';
+import styles from '@/styles/Post.module.css';
 import {
     selectIsEditing,
     setForm,
@@ -20,7 +21,7 @@ import {
     selectUserValue,
     createBookmarkOnUser,
 } from '@/store/slices/userSlice';
-import { PostProps, User } from '@/lib/interface';
+import { PostProps } from '@/lib/interface';
 import { useRouter } from 'next/router';
 import {
     selectLoaderState,
@@ -194,7 +195,7 @@ const Post = ({
 
     return (
         <motion.div
-            className={`shadow-md  rounded-md mb-5 transition-all duration-300 ease-in-out p-4 ${
+            className={`shadow-md rounded-md mb-5 transition-all duration-300 ease-in-out p-4 ${
                 isThisDeletedPost === idPost
                     ? 'shadow-red-300'
                     : 'shadow-gray-300'
@@ -294,7 +295,7 @@ const Post = ({
                                 <div className="absolute right-0 top-2 shadow-md shadow-gray-300 p-3 rounded-sm border border-gray-100 w-40 sm:w-52 bg-bgWeb z-10">
                                     <button
                                         type="button"
-                                        className="flex gap-3 py-2 my-2 hover:bg-socialBlue hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
+                                        className="flex gap-3 py-2 my-2 hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
                                         onClick={() => {
                                             dispatch(setOpenDelete(idPost));
                                             setDropdownOpen(false);
@@ -317,7 +318,7 @@ const Post = ({
                                         Delete Post
                                     </button>
                                     <button
-                                        className="flex gap-3 py-2 my-2 hover:bg-socialBlue hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
+                                        className="flex gap-3 py-2 my-2 hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
                                         onClick={() => {
                                             setDispatchOnEdit();
                                             setDropdownOpen(false);

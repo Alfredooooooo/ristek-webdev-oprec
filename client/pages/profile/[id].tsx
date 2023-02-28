@@ -118,6 +118,7 @@ const ProfileId = ({
     const currentBio = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
     const allPosts = useSelector(selectCurrentUserPostsValue);
+    const [defaultEditValue, setDefaultEditValue] = useState('');
 
     const filteredPosts = useMemo(() => {
         if (allPosts === undefined) return;
@@ -134,6 +135,7 @@ const ProfileId = ({
         dispatch(setCurrentUserPosts(currentUserPosts));
         dispatch(setUser(userLogin));
         dispatch(setRefreshToken(refreshToken));
+        setDefaultEditValue(currentUser.bio);
     }, []);
 
     const showNotif = (message?: string, type?: string) => {
@@ -183,6 +185,7 @@ const ProfileId = ({
         setIsEditing(false);
         if (status === true) {
             dispatch(setUser(data.content));
+            setDefaultEditValue(data.content.bio);
         }
     };
 
@@ -331,7 +334,7 @@ const ProfileId = ({
                                                 className="block p-2.5 w-full h-60 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Write your bio here..."
                                                 required
-                                                defaultValue={currentUser.bio}
+                                                defaultValue={defaultEditValue}
                                                 ref={currentBio}
                                             ></textarea>
                                             <div className="sm:flex sm:flex-row flex-col text-center">

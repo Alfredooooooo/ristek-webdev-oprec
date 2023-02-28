@@ -4,18 +4,19 @@ import {
     setOpenDelete,
 } from '@/store/slices/modalSlices';
 import { useDispatch, useSelector } from 'react-redux';
+import styles from '@/styles/DeleteModal.module.css';
 
 const DeleteModal = ({ handleOnDelete }: DeleteModalProps) => {
     const postId = useSelector(selectDeleteModalValue);
     const dispatch = useDispatch();
     return (
         <>
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse2">
-                <div className="relative w-full h-full max-w-md md:h-auto">
-                    <div className="relative bg-bgWeb/90 rounded-lg shadow">
+            <div className={styles.top}>
+                <div className={styles.rel}>
+                    <div className={styles.cont}>
                         <button
                             type="button"
-                            className="absolute top-3 right-2.5 text-gray-200 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                            className={styles.svgclose}
                             onClick={() => {
                                 dispatch(setOpenDelete(''));
                             }}
@@ -51,14 +52,14 @@ const DeleteModal = ({ handleOnDelete }: DeleteModalProps) => {
                                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                                 ></path>
                             </svg>
-                            <h3 className="mb-5 font-normal text-gray-200 sm:text-lg text-xs">
+                            <h3 className={styles.text}>
                                 Are you sure you want to delete this?
                             </h3>
-                            <div className="flex sm:flex-row flex-col gap-2 justify-center items-center">
+                            <div className={styles.buttonGroup}>
                                 <button
                                     data-modal-hide="popup-modal"
                                     type="button"
-                                    className="text-white bg-primary/50 hover:bg-primary/20 focus:ring-4 focus:outline-none focus:ring-primary/70 md:font-medium rounded-lg md:text-sm text-xs xs:py-2.5 px-2 py-1 text-center transition duration-300 ease-in-out"
+                                    className={styles.deleteButton}
                                     onClick={() => {
                                         handleOnDelete(postId);
                                         dispatch(setOpenDelete(''));
@@ -69,7 +70,7 @@ const DeleteModal = ({ handleOnDelete }: DeleteModalProps) => {
                                 <button
                                     data-modal-hide="popup-modal"
                                     type="button"
-                                    className="text-gray-600 bg-white hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 md:text-sm text-xs font-medium xs:px-5 xs:py-2.5 px-2 py-1 hover:text-gray-900 hover:border-gray-500 focus:z-10 transition duration-300 ease-in-out"
+                                    className={styles.cancelButton}
                                     onClick={() => {
                                         dispatch(setOpenDelete(''));
                                     }}

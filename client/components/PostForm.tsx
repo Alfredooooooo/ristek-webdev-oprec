@@ -1,4 +1,5 @@
 import { formType } from '@/lib/interface';
+import styles from '@/styles/PostForm.module.css';
 import {
     selectFormValue,
     selectInitialContent,
@@ -114,7 +115,7 @@ const PostForm = ({ onSubmit, profilePicture }: PostFormType) => {
                             />
                         </div>
                         <textarea
-                            className={`flex-grow p-3 h-20 bg-transparent border-2 rounded-md focus:outline-none placeholder-gray-400 transition duration-300 ease-in-out ${
+                            className={`${styles.textarea} ${
                                 isCloseFriend
                                     ? 'focus:border-teal-500 border-teal-500'
                                     : 'focus:border-primary border-primary'
@@ -127,7 +128,7 @@ const PostForm = ({ onSubmit, profilePicture }: PostFormType) => {
                             required
                         />
                     </div>
-                    <div className="flex items-center mt-2 justify-between px-2 py-1 flex-col xs:flex-row gap-4">
+                    <div className={styles.buttonGroup}>
                         <div className="flex gap-5">
                             <ButtonSVG>
                                 <>
@@ -190,7 +191,7 @@ const PostForm = ({ onSubmit, profilePicture }: PostFormType) => {
                         </div>
                         <div className="text-right">
                             <button
-                                className="bg-gradient-to-r from-sky-200 to-slate-100 sm:px-10 px-4 py-2 rounded-md text-black font-bold flex gap-2 justify-center items-center shadow-lg shadow-gray-300 hover:scale-110 transition duration-300 ease-in-out"
+                                className={styles.submitButton}
                                 type="submit"
                             >
                                 Post
@@ -220,10 +221,10 @@ const PostForm = ({ onSubmit, profilePicture }: PostFormType) => {
                             <img
                                 src={imagePost}
                                 alt="imagePost"
-                                className="h-24 rounded-md object-cover w-auto"
+                                className={styles.img}
                             ></img>
                             <span
-                                className="absolute z-99 right-0 top-0 cursor-pointer animate-pulse"
+                                className={styles.cancelImg}
                                 onClick={() => {
                                     setImagePost('');
                                     setImageInput(undefined);

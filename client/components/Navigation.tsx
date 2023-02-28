@@ -48,7 +48,7 @@ const Navigation = ({ handleCloseFriendModal }: NavigationProps) => {
             },
         });
 
-        deleteCookie('user');
+        deleteCookie('userId');
         deleteCookie('refreshToken');
         router.push('/login');
         dispatch(

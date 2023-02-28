@@ -145,7 +145,6 @@ const SetupProfilePicture = () => {
                                                     Click to set up your profile
                                                     image
                                                 </span>{' '}
-                                                or drag and drop
                                             </p>
                                             <p className="text-xs text-gray-500 dark:text-gray-400">
                                                 Only image please!

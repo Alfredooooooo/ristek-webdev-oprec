@@ -85,7 +85,7 @@ const Bio = () => {
                     </div>
 
                     <p
-                        className="text-blue-400 font-bold text-2xl hover:text-blue-100 hover:scale-110 transition duration-500 ease-in-out cursor-pointer"
+                        className={styles.bio}
                         onClick={() => {
                             setFieldValue('bio', lorem.generateWords(100));
                         }}
